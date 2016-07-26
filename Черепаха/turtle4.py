@@ -4,18 +4,19 @@ t.shape("turtle")
 t.shapesize(2)
 t.color("red", "yellow")
 
-t.begin_fill()
+t.penup()
+t.backward(200)
 
-for i in range(5):
-    for k in range(3):
-        t.forward(100)
-        t.left(360/3)
-        
-    t.forward(100)
-    t.right(360/5)
+for i in range(20):
+    t.pendown()
+    t.forward(i)
+    t.penup()
+    t.forward(i)
 
-t.hideturtle()     
-t.end_fill()
+    
+
+t.hideturtle()
+
 
 #t.begin_fill()
 #t.end_fill()
