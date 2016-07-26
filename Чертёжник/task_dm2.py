@@ -1,6 +1,9 @@
 from drawman import *
 from time import sleep
-drawman_scale(20)
+
+drawman_scale(50)   # указываем масштаб
+
+grid()              # рисуем координатную сетку
 
 def f(x):
     return x*x
@@ -13,4 +16,4 @@ while x < 4:
     x += 0.1
 pen_up()
 
-sleep(5)
+sleep(5)            # ждем 5 секунд
