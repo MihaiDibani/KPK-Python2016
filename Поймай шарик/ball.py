@@ -20,14 +20,29 @@ def print_hello(event):
         raise ValueError()
 
 
-root = Tk() # создаем виджет главного окна
+def init_main_window():
+    """
+    Инициализация главного окна: создание всех необходимых виджетов и их упаковка.
+    :return:
+    """
+    global root, button1, button2, label, text, slider
+    root = Tk() # создаем виджет главного окна
 
-button1 = Button(root, text="Button1", command=button1_command)
-button1.bind("<Button>", print_hello)
-button1.pack()                           # запаковка виджета
+    button1 = Button(root, text="Button1", command=button1_command)
+    button1.bind("<Button>", print_hello)
 
-button2 = Button(root, text="Button2")  # создание виджета кнопки
-button2.bind("<Button>", print_hello)  # привязка события к кнопке button
-button2.pack()
+    button2 = Button(root, text="Button2")  # создание виджета кнопки
+    button2.bind("<Button>", print_hello)  # привязка события к кнопке button
 
-root.mainloop()#цикл ожидания событий
+    variable = IntVar(0)
+    label = Label(root, textvariable=variable)
+    slider = Scale(root, orient=HORIZONTAL, length=300, tickinterval=10, resolution=5, variable=variable)
+    text = Entry(root, textvariable=variable)
+    for obj in button1, button2, label, slider, text:
+        obj.pack()
+
+if __name__ == "__main__":
+    init_main_window()
+
+
+    root.mainloop()#цикл ожидания событий
